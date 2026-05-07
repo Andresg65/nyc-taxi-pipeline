@@ -24,6 +24,10 @@ for schema in schemas:
     spark.sql(f"CREATE SCHEMA IF NOT EXISTS {catalog_name}.{schema}")
     print(f"Esquema {schema} verificado/creado en {catalog_name}.")
 
+# Crear Volumen para ingesta (Reemplaza DBFS root)
+spark.sql(f"CREATE VOLUME IF NOT EXISTS {catalog_name}.raw.ingestion_volume")
+print(f"Volumen 'ingestion_volume' verificado/creado en {catalog_name}.raw")
+
 # COMMAND ----------
 
 # MAGIC %md

@@ -17,9 +17,9 @@ raw_schema = f"{catalog}.raw"
 trips_url = "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet"
 zones_url = "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv"
 
-# Directorio temporal en DBFS
-temp_dir = "/tmp/nyc_taxi_ingestion/"
-dbutils.fs.mkdirs(temp_dir)
+# Directorio en Unity Catalog Volume
+# Formato: /Volumes/<catalog>/<schema>/<volume>/
+temp_dir = f"/Volumes/{catalog}/raw/ingestion_volume/"
 
 # COMMAND ----------
 
