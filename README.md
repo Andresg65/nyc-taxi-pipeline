@@ -45,8 +45,6 @@ graph LR
 
 ## Cómo ejecutar la prueba
 
-## Cómo ejecutar la prueba
-
 1.  **Importar Notebooks**: Sube la carpeta `notebooks/` a tu workspace de Databricks.
 2.  **Configuración**: Abre `01_setup.py` y ajusta la variable `user_name` para personalizar tu catálogo en Unity Catalog. Ejecuta todas las celdas.
 3.  **Ejecución Secuencial**:
