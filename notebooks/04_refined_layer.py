@@ -10,7 +10,7 @@ from pyspark.sql.window import Window
 from datetime import datetime
 
 # Configuración
-user_name = "antigravity"
+user_name = "OscarGuio"
 catalog = f"nyc_taxi_{user_name}"
 trusted_schema = f"{catalog}.trusted"
 refined_schema = f"{catalog}.refined"

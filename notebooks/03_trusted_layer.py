@@ -10,7 +10,7 @@ from datetime import datetime
 import json
 
 # Configuración
-user_name = "antigravity"
+user_name = "OscarGuio"
 catalog = f"nyc_taxi_{user_name}"
 raw_schema = f"{catalog}.raw"
 trusted_schema = f"{catalog}.trusted"

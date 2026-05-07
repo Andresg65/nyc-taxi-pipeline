@@ -5,8 +5,8 @@
 
 # COMMAND ----------
 
-# Configuración de nombres (Personalizar <tu_nombre>)
-user_name = "antigravity" # Cambiar por tu nombre
+# Configuración de nombres 
+user_name = "OscarGuio" # Cambiar por tu nombre
 catalog_name = f"nyc_taxi_{user_name}"
 
 # COMMAND ----------

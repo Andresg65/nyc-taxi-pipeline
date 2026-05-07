@@ -9,7 +9,7 @@ import requests
 import os
 
 # Configuración
-user_name = "antigravity"
+user_name = "OscarGuio"
 catalog = f"nyc_taxi_{user_name}"
 raw_schema = f"{catalog}.raw"
 
