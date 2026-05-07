@@ -35,26 +35,26 @@ def download_file(url, target_path):
 
 # COMMAND ----------
 
-# Descargar archivos a la zona local del driver y luego mover a DBFS
-local_trips = "/tmp/trips_2023_01.parquet"
-local_zones = "/tmp/taxi_zones.csv"
+# Descargar archivos directamente al Volumen
+trips_path = f"{temp_dir}trips.parquet"
+zones_path = f"{temp_dir}zones.csv"
 
-download_file(trips_url, local_trips)
-download_file(zones_url, local_zones)
-
-dbutils.fs.cp(f"file:{local_trips}", f"{temp_dir}trips.parquet")
-dbutils.fs.cp(f"file:{local_zones}", f"{temp_dir}zones.csv")
+# Asegurar que el directorio del volumen sea accesible (crear subcarpeta si es necesario)
+# En los Volúmenes de UC, esto se trata como un sistema de archivos local
+download_file(trips_url, trips_path)
+download_file(zones_url, zones_path)
 
 # COMMAND ----------
 
 # Ingesta a Capa Raw (Trips)
 print("Ingestando Trips a Raw...")
-df_trips = spark.read.parquet(f"{temp_dir}trips.parquet")
+# Leemos directamente desde la ruta del Volumen
+df_trips = spark.read.parquet(trips_path)
 df_trips.write.format("delta").mode("overwrite").saveAsTable(f"{raw_schema}.yellow_taxi_trips")
 
 # Ingesta a Capa Raw (Zones)
 print("Ingestando Zones a Raw...")
-df_zones = spark.read.option("header", "true").csv(f"{temp_dir}zones.csv")
+df_zones = spark.read.option("header", "true").csv(zones_path)
 df_zones.write.format("delta").mode("overwrite").saveAsTable(f"{raw_schema}.taxi_zone_lookup")
 
 print(f"Capa Raw completada. Tablas creadas en {raw_schema}")
