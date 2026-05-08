@@ -6,7 +6,7 @@
 # COMMAND ----------
 
 # Configuración de nombres 
-user_name = "OscarGuio" # Cambiar por tu nombre
+user_name = "OscarGuio" 
 catalog_name = f"nyc_taxi_{user_name}"
 
 # COMMAND ----------
